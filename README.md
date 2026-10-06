@@ -6,30 +6,11 @@ FixIt AI is a portfolio project that helps product owners find clear troubleshoo
 
 **Status:** Working local demonstration; Azure deployment preparation is in progress. A public live demo is not available yet. This public repository is a project showcase only—the application source code remains private.
 
-## Implemented step illustrations
+## Experience preview
 
-These are the actual artwork assets used in the local application—not the earlier design mockup. Matching guidance steps display their model-specific illustration. The manual-source panel also shows the matching artwork, labeled **Demo illustration**, alongside the relevant cited excerpts and a link to the full PDF page.
+![Approved FixIt AI support-interface design mockup](assets/support-design.png)
 
-| C100 · Bean lid | C200 · Water tank | W240 · Door closure |
-| :---: | :---: | :---: |
-| <img src="assets/c100-lid.png" width="220" alt="C100 bean lid resting flat"> | <img src="assets/c200-tank.png" width="220" alt="C200 water tank and seating recess"> | <img src="assets/w240-door.png" width="220" alt="W240 gentle washer door closure"> |
-| Illustration beside the lid-closing step | Illustration beside the tank-refitting step | Illustration beside the door-check step |
-
-| W360 · Laundry load | D60 · Mesh filter | D80 · Upper rack |
-| :---: | :---: | :---: |
-| <img src="assets/w360-laundry.png" width="220" alt="W360 loose laundry inside an unlocked washer"> | <img src="assets/d60-filter.png" width="220" alt="D60 mesh filter seated flat"> | <img src="assets/d80-rack.png" width="220" alt="D80 upper rack moving inward"> |
-| Illustration beside the redistribution step | Illustration beside the filter-refitting step | Illustration beside the rack-positioning step |
-
-Other supported steps use contextual icons, such as pause, waiting, and contacting support. This gallery shows application assets, not full interface screenshots or PDF scans. Illustrations supplement the cited text; they are not independent manual evidence. All examples are fictional and are not instructions for real appliances.
-
-<details>
-<summary>Earlier approved layout mockup (design reference only)</summary>
-
-![Earlier FixIt AI support-interface design mockup](assets/support-design.png)
-
-This earlier mockup predates the implemented illustrated steps and focused source excerpts. It is not the current application screenshot or a deployed service.
-
-</details>
+*Approved design mockup, not a screenshot of a deployed service. The implemented local experience includes product imagery, illustrated steps, cited excerpts, and links to full manual pages.*
 
 ## The problem
 
@@ -74,6 +55,6 @@ The recruiter-facing live demo link will be added here after deployment and veri
 
 Created by [Krishna Mvwala](https://github.com/krishnamvwala).
 
-This repository contains only this overview and selected visual assets. It does not contain application source code, credentials, internal project tracking, or the private repository's history.
+This repository contains only this overview and a selected design asset. It does not contain application source code, credentials, internal project tracking, or the private repository's history.
 
 All demonstrated products and manuals are fictional portfolio materials—not instructions for operating or repairing real appliances.
