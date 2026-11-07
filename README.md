@@ -1,60 +1,79 @@
-# FixIt AI
+# FixIt AI — product-support prototype
 
-### Product support grounded in the manual—not guesswork.
+An illustrated, manual-grounded support experience that helps people find the right
+instructions for their exact Product Model—and declines to invent answers when
+the manual does not support a response.
 
-FixIt AI is a portfolio project that helps product owners find clear troubleshooting and maintenance guidance from a selected product's manual, with page-level citations and an explicit safety boundary.
+**Status: local portfolio prototype, not a hosted live-AI service.** The walkthrough
+uses deterministic retrieval and extractive answers, with no live model calls.
+All appliances, manuals and support contacts shown are fictional.
 
-**Status:** Working local demonstration; Azure deployment preparation is in progress. A public live demo is not available yet. This public repository is a project showcase only—the application source code remains private.
+[Watch the prototype walkthrough](captures/prototype-walkthrough.webm)
 
-## Experience preview
+![Illustrated troubleshooting with manual citations](captures/02-illustrated-guidance.png)
 
-![Approved FixIt AI support-interface design mockup](assets/support-design.png)
+## What the prototype demonstrates
 
-*Approved design mockup, not a screenshot of a deployed service. The implemented local experience includes product imagery, illustrated steps, cited excerpts, and links to full manual pages.*
+- A six-product catalog covering coffee machines, washers and dishwashers.
+- Model-specific answers: the same error code can mean different things on
+  different products, so evidence stays tied to the selected model.
+- Illustrated steps, prominent safety warnings and page-level manual Citations.
+- Unsupported-question handling and safety escalation instead of invented repair
+  instructions.
+- A Manufacturer workflow for reviewing manuals, publishing versions and reviewing
+  feedback, implemented separately from the anonymous Product Owner experience.
 
-## The problem
+## Walkthrough
 
-The same error code can mean different things on different products. Generic answers can be irrelevant or unsafe. FixIt AI keeps guidance tied to the selected model and its published manual, and declines to invent an answer when the evidence is missing.
+1. Browse the catalog and select Aurora Brew C100.
+2. Ask “What does E01 mean?” to see illustrated Guidance and a cited page-4 excerpt.
+3. Ask about Bluetooth to see the unsupported-question response.
+4. Ask to bypass the lid sensor to see safety escalation.
 
-## What the local demo demonstrates
+The recording is a silent screen capture of the actual local application, not a
+rendered mockup. It shows the cited excerpt and the full-manual link; it does not
+demonstrate opening the PDF viewer.
 
-- Six fictional product models across coffee machines, washing machines, and dishwashers, with original demonstration manuals.
-- Model-specific guidance, page-level citations, and manual-source previews.
-- Unsupported-question handling and escalation for requests beyond the safety boundary.
-- A Manufacturer workspace for manual upload, processing, review, publication, and feedback review.
-- Versioned manuals: processing a replacement does not automatically publish it.
-- Repeatable offline evaluations and automated API, web, browser, and security checks.
+## Screenshots
 
-The repeatable local demo uses a deterministic answer path. Azure-backed model and retrieval integrations are implemented separately; this showcase does not claim that the public Azure deployment or cloud indexing of all six manuals is complete.
+### Product catalog
 
-## Architecture
+![Six fictional product models](captures/01-product-catalog.png)
 
-| Layer | Technology and responsibility |
-| --- | --- |
-| Web application | Next.js, React, and TypeScript: product selection, guidance, citations, and administration |
-| API | Python and FastAPI: application workflows, evidence access, and safety handling |
-| Ingestion | Explicitly enabled, bounded one-shot processing; successful manuals remain ready for human review |
-| Azure integration target | Azure-hosted OpenAI through Microsoft Foundry, Azure AI Search, Blob Storage, and Azure SQL |
-| Hosting and identity target | Azure Container Apps, managed identities, and Microsoft Entra ID |
+### Unsupported question
 
-Cloud hosting and identity configuration still require deployment and end-to-end verification. They are not represented here as a running production service.
+![An unsupported question is not answered speculatively](captures/03-unsupported-question.png)
 
-## Engineering priorities
+### Safety boundary
 
-- **Evidence:** Answers stay associated with the selected model and cited manual content.
-- **Safety:** Hazardous requests escalate instead of receiving repair procedures.
-- **Publication control:** Ingestion, review, and publication are separate operations.
-- **Cost control:** Bounded processing and provider usage limits support a low-usage demo; limits are not a guarantee of zero cloud costs.
-- **Verification:** CI includes tests, dependency auditing, secret scanning, and security checks. Changes pass review before merging.
+![A hazardous request is escalated to support](captures/04-safety-escalation.png)
 
-## Try it
+## Engineering scope
 
-The recruiter-facing live demo link will be added here after deployment and verification. There is currently nothing to install from this showcase repository.
+The project combines a Next.js/TypeScript interface with a Python/FastAPI API,
+versioned manual ingestion, relational persistence, page-aware retrieval and
+repeatable evaluations. This local demonstration uses SQLite and deterministic
+substitutes. The source repository also contains opt-in Microsoft Foundry,
+Azure AI Search and Blob adapters plus disabled infrastructure drafts; these are
+not activated in the walkthrough. Cloud deployment is deliberately deferred.
 
-## About this showcase
+Key design choices include keeping evidence model-specific, requiring explicit
+manual publication, preserving cited source versions, separating administration
+from the public support flow, and avoiding permanent full conversation histories.
 
-Created by [Krishna Mvwala](https://github.com/krishnamvwala).
+## Local verification
 
-This repository contains only this overview and a selected design asset. It does not contain application source code, credentials, internal project tracking, or the private repository's history.
+On November 7, 2026, the curated six-model local evaluation passed all six model
+gates: 90/90 expected outcomes, 48/48 page-citation checks, 19/19 unsupported-question
+abstentions and 15/15 safety escalations. Live AI calls: **0**.
 
-All demonstrated products and manuals are fictional portfolio materials—not instructions for operating or repairing real appliances.
+These are deterministic regression results—not held-out accuracy, live-model
+quality, production certification or evidence of real-appliance safety. The live
+cloud release gate remains **not evaluated**.
+
+## Availability and limitations
+
+This showcase presents screenshots and a recording; it does not offer an online
+chat endpoint. Source code remains private. The fictional manuals must not be used
+to operate or repair real equipment. Illustrations are demonstration artwork, not
+manufacturer-certified technical diagrams.
